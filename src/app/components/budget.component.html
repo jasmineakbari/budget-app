@@ -26,10 +26,11 @@
 				<td>{{row.cost}}</td>
 				<td>{{row.priority}}</td>
 				<td>{{row.desired}}%</td>
-				<td>{{row.actual}}%</td>
+                <!-- change ta class if actual % value is higher than desired -->
+				<td [ngClass]="{'highlight' : row.actual > row.desired}">{{row.actual}}%</td>
 				<td align="center">
-					<button>Edit</button>
-					<button>Delete</button>
+					<button (click)="onSelect(row)">Edit</button>
+					<button (click)="onDelete(row)">Delete</button>
 				</td>
 			</tr>
 		</tbody>
@@ -61,7 +62,8 @@
 		</div>
 
 		<div style="margin-top: 10px">
-			<button (click)="onUpdate()">{{selected.id > 0 ? 'Update' : 'Create'}}</button>
+            <!-- create button changes to update if expense is selected from table -->
+			<button (click)="onCreate()">{{selected.id > 0 ? 'Update' : 'Create'}}</button>
 			<button (click)="onCancel()" style="margin-left: 5px">Cancel</button>
 		</div>
 	</form>

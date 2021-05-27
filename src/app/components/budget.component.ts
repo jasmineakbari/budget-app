@@ -18,11 +18,11 @@ interface Expenses {
 
 // Export Budget Component Functions
 export class BudgetComponent implements OnInit {
-    //define user initial user input and total budget
+    //define user initial user input and total budget on load
     input_budget: number = 100;
 	total_budget: number = 100.00;
 
-    // presets for expense form
+    // presets for expense form on load
     selected: Expenses = {
 		id: 0,
 		expense: '',
@@ -34,23 +34,23 @@ export class BudgetComponent implements OnInit {
 
     // starter example data on load
     expenses: Expenses[] = [
-		{
-			id: 1,
-			expense: 'Food',
-			cost: 40,
-			priority: 'High',
-			desired: 30,
-			actual: 40
-		},
+		// {
+		// 	id: 1,
+		// 	expense: 'Food',
+		// 	cost: 40,
+		// 	priority: 'High',
+		// 	desired: 30,
+		// 	actual: 40
+		// },
 		
-		{
-			id: 2,
-			expense: 'Netflix',
-			cost: 13,
-			priority: 'low',
-			desired: 15,
-			actual: 15
-		}
+		// {
+		// 	id: 2,
+		// 	expense: 'Netflix',
+		// 	cost: 13,
+		// 	priority: 'low',
+		// 	desired: 15,
+		// 	actual: 15
+		// }
 	];
 
     constructor() { }
@@ -65,13 +65,26 @@ export class BudgetComponent implements OnInit {
         this.calcuateActual();
 	}
     
+    // calculates cost of expense actual % against total budget
     calcuateActual(): void {
 		this.expenses.forEach((item: Expenses) => {
 			item.actual = item.cost * 100 / this.total_budget;
 		});
+        this.onCancel();
 	}
 
-    onUpdate(): void {
+    // function to select expense row for editing
+    onSelect(row: Expenses): void {
+		this.selected = Object.assign({}, row);
+	}
+
+    // function to delete expense from array
+    onDelete(row: Expenses): void {
+		this.expenses = this.expenses.filter((item: Expenses) => item.id != row.id);
+        this.onCancel();
+	}
+
+    onCreate(): void {
 		// check validate
 		if ( !this.selected.expense ) {
 			return;
@@ -95,7 +108,7 @@ export class BudgetComponent implements OnInit {
 					max_id = item.id;
 			});
 
-            //assigns input to expense model
+            //assigns user input to expense model
 			let model: Expenses = {
 				id: max_id + 1,
 				expense: this.selected.expense,
@@ -113,6 +126,7 @@ export class BudgetComponent implements OnInit {
 			return;
 		}
 
+        // look for an existing expense to update
 		let model = this.expenses.find((item: Expenses) => this.selected.id == item.id);
 
 		if ( !model ) {
@@ -125,7 +139,6 @@ export class BudgetComponent implements OnInit {
 		model.desired = this.selected.desired;
 
 		this.calcuateActual();
-		this.onCancel();
 	}
 
     // resets form data
