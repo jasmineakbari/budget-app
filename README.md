@@ -20,7 +20,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 2. Clone the repository by clicking the green "Code" download button towards the top of the repository and copy the link under the HTTPS tab.
 
-![Step 2](/src/assets/images/step-2.png)
+![Step 2](/src/assets/images/step-2.PNG)
 
 3. Once installed, you can simply navigate to the folder where the application was saved by using the `cd` command to change between folders. 
 
