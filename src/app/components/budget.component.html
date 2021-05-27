@@ -1,3 +1,4 @@
+<!-- Budget Input Form and display -->
 <div>
 	<label for="name">Total Budget: </label>
 	<input id="input_budget" [(ngModel)]="input_budget" placeholder="Total Budget" />
@@ -6,6 +7,7 @@
 
 <p><b>Total Monthly Funds:</b> {{total_budget}}</p>
 
+<!-- Current Expense Table -->
 <div>
 	<table>
 		<thead>
@@ -19,12 +21,12 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>%</td>
-				<td>%</td>
+			<tr *ngFor="let row of expenses">
+				<td>{{row.expense}}</td>
+				<td>{{row.cost}}</td>
+				<td>{{row.priority}}</td>
+				<td>{{row.desired}}%</td>
+				<td>{{row.actual}}%</td>
 				<td align="center">
 					<button>Edit</button>
 					<button>Delete</button>
@@ -34,19 +36,20 @@
 	</table>
 </div>
 
+<!-- Expense Form input -->
 <div class="expense-form-container">
 	<form>
 		<div>
 			<label for="expense">Expense: </label>
-			<input name="expense" placeholder="Expense" />
+			<input name="expense" [(ngModel)]="selected.expense" placeholder="Expense" />
 		</div>
 		<div>
 			<label for="cost">Cost: </label>
-			<input name="cost" placeholder="Cost" />
+			<input name="cost" [(ngModel)]="selected.cost" placeholder="Cost" />
 		</div>
 		<div>
 			<label for="cost">Priority: </label>
-			<select name="priority">
+			<select name="priority" [(ngModel)]="selected.priority">
 				<option value="Low">Low</option>
 				<option value="Medium">Medium</option>
 				<option value="High">High</option>
@@ -54,12 +57,12 @@
 		</div>
 		<div>
 			<label for="desired">Desired<br>Percentage:</label>
-			<input name="desired" placeholder="Desired" />
+			<input name="desired" [(ngModel)]="selected.desired" placeholder="Desired" />
 		</div>
 
 		<div style="margin-top: 10px">
-			<button>Create</button>
-			<button style="margin-left: 5px">Cancel</button>
+			<button (click)="onUpdate()">{{selected.id > 0 ? 'Update' : 'Create'}}</button>
+			<button (click)="onCancel()" style="margin-left: 5px">Cancel</button>
 		</div>
 	</form>
 </div>
