@@ -1,0 +1,25 @@
+<div>
+	<label for="name">Total Budget: </label>
+	<input id="input_budget" [(ngModel)]="input_budget" placeholder="Total Budget" />
+	<button (click)="onUpdateBudget(input_budget)">Update Total Budget</button>
+</div>
+
+<p><b>Total Monthly Funds:</b> {{total_budget}}</p>
+
+<div>
+	<table>
+		<thead>
+			<tr>
+				<th><b>Expense</b></th>
+				<th><b>Cost</b></th>
+				<th><b>Priority</b></th>
+				<th><b>Desired Percentage<br>of Total Monthly<br>Funds</b></th>
+				<th><b>Actual Percentage<br>of Total Monthly<br>Funds</b></th>
+				<th><b>Action</b></th>
+			</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
+</div>
