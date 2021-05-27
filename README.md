@@ -24,7 +24,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 3. Once installed, you can simply navigate to the folder where the application was saved by using the `cd` command to change between folders. 
 
-4. Run `npm i` to install the dependencies for the project then `ng serve` for a dev server. Navigate to `http://localhost:4200/` once the command line prompts that the application was compiled successfully.
+4. Run `npm i` to install the dependencies for the application then, `ng serve` for a development server. Navigate to `http://localhost:4200/` once the command line prompts that the application was compiled successfully.
 
 ## Screenshot
 
@@ -36,9 +36,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * User Friendly
 * Calculate Expenses against a total Monthly Budget
 * Define an expense by name, cost, priority level, desired % of budget
-* Instant calculation of Actual Percentage against Budget
-* Highlights any expenses over desired percentage
-* Press Cancel to clear expense form data
+* Instant calculation of Actual % against Budget
+* Highlights any expenses over desired $
+* Pressings Cancel resets expense form data
 
 ## Contributing
 
