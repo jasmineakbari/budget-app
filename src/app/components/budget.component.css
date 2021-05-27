@@ -10,7 +10,19 @@ th {
     width: 10%;
 }
 
-.add-btn-container {
-    text-align: right;
-    margin-top: 5px;
+form > div {
+    margin-bottom: 5px;
+}
+
+form > div > label {
+    width: 100px;
+    display: inline-block;
+}
+
+.expense-form-container {
+    margin-top: 25px;
+}
+
+.highlight {
+    color: red;
 }
