@@ -18,7 +18,7 @@ interface Expenses {
 
 // Export Budget Component Functions
 export class BudgetComponent implements OnInit {
-    //define user initial user input and total budget on load
+    // define initial user input and total budget on load
     input_budget: number = 100;
 	total_budget: number = 100.00;
 
@@ -32,26 +32,8 @@ export class BudgetComponent implements OnInit {
 		actual: 0
 	}
 
-    // starter example data on load
-    expenses: Expenses[] = [
-		// {
-		// 	id: 1,
-		// 	expense: 'Food',
-		// 	cost: 40,
-		// 	priority: 'High',
-		// 	desired: 30,
-		// 	actual: 40
-		// },
-		
-		// {
-		// 	id: 2,
-		// 	expense: 'Netflix',
-		// 	cost: 13,
-		// 	priority: 'low',
-		// 	desired: 15,
-		// 	actual: 15
-		// }
-	];
+    // empty array to hold expense list
+    expenses: Expenses[] = [];
 
     constructor() { }
 
@@ -68,7 +50,7 @@ export class BudgetComponent implements OnInit {
     // calculates cost of expense actual % against total budget
     calcuateActual(): void {
 		this.expenses.forEach((item: Expenses) => {
-			item.actual = item.cost * 100 / this.total_budget;
+			item.actual = Math.floor(item.cost * 100 / this.total_budget);
 		});
         this.onCancel();
 	}

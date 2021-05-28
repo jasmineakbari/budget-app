@@ -1,0 +1,9 @@
+h1 {
+    font-size: 36px;
+    color: white;
+    padding: 15px 25px;
+    margin: 0 auto;
+    background: #232526;
+    background: -webkit-linear-gradient(to right, #414345, #232526);
+    background: linear-gradient(to right, #414345, #232526);
+}

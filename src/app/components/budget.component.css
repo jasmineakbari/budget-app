@@ -1,15 +1,48 @@
+/*  Budget Stylings */
+p {
+    margin-top: 50px;
+    font-size: 32px;
+}
+
+.budget {
+    margin-top: 50px;
+}
+
+.budget-btn {
+    margin-left: 5px;
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s all;
+}
+
+.budget-btn:active {
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+
+/*  Table Stylings */
 table, th, td {
-    border: 1px solid black;    
+    border: 1px solid black;
+    padding: 5px;    
 }
 
 table {
     border-collapse: collapse;
+    margin-top: 50px;
 }
 
 th {
+    background-color: #dddddd;
     width: 10%;
 }
 
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+/* Form Stylings */
 form > div {
     margin-bottom: 5px;
 }
@@ -17,10 +50,45 @@ form > div {
 form > div > label {
     width: 100px;
     display: inline-block;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
 }
 
 .expense-form-container {
-    margin-top: 25px;
+    margin-top: 50px;
+    display:flex;
+    justify-content: center;
+    margin: 50px auto;
+    border-radius: 5px;
+    padding: 10px 15px;
+    max-width: 500px;
+    background-color: #dddddd;
+}
+
+/* Special  and combined Stylings */
+
+button {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+    cursor: pointer;
+    outline: none;
+    padding: .5rem 1rem;
+    transition: 0.2s all;
+    background: #834d9b;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #d04ed6, #834d9b);
+    background: linear-gradient(to right, #d04ed6, #834d9b);
+}
+
+button:hover {
+    top: 3px;
+}
+
+button:active {
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
 
 .highlight {

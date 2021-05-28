@@ -1,14 +1,14 @@
 <!-- Budget Input Form and display -->
-<div>
+<div align="center" class="budget">
 	<label for="name">Total Budget: </label>
 	<input id="input_budget" [(ngModel)]="input_budget" placeholder="Total Budget" />
-	<button (click)="onUpdateBudget(input_budget)">Update Total Budget</button>
+	<button (click)="onUpdateBudget(input_budget)" class="budget-btn">Update Total Budget</button>
 </div>
 
-<p><b>Total Monthly Funds:</b> {{total_budget}}</p>
+<p align="center"><b>Total Monthly Funds:</b> {{total_budget}}</p>
 
-<!-- Current Expense Table -->
-<div>
+<!-- Expense List Table -->
+<div align="center">
 	<table>
 		<thead>
 			<tr>
@@ -30,14 +30,14 @@
 				<td [ngClass]="{'highlight' : row.actual > row.desired}">{{row.actual}}%</td>
 				<td align="center">
 					<button (click)="onSelect(row)">Edit</button>
-					<button (click)="onDelete(row)">Delete</button>
+					<button (click)="onDelete(row)" style="margin-left: 5px">Delete</button>
 				</td>
 			</tr>
 		</tbody>
 	</table>
 </div>
 
-<!-- Expense Form input -->
+<!-- Expense Form -->
 <div class="expense-form-container">
 	<form>
 		<div>
@@ -61,10 +61,10 @@
 			<input name="desired" [(ngModel)]="selected.desired" placeholder="Desired" />
 		</div>
 
-		<div style="margin-top: 10px">
+		<div align="center" style="margin-top: 10px">
             <!-- create button changes to update if expense is selected from table -->
 			<button (click)="onCreate()">{{selected.id > 0 ? 'Update' : 'Create'}}</button>
-			<button (click)="onCancel()" style="margin-left: 5px">Cancel</button>
+			<button (click)="onCancel()" style="margin-left: 10px">Cancel</button>
 		</div>
 	</form>
 </div>
