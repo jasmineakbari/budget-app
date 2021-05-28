@@ -37,7 +37,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * Calculate Expenses against a total Monthly Budget
 * Define an expense by name, cost, priority level, desired % of budget
 * Instant calculation of Actual % against Budget
-* Highlights any expenses over desired $
+* Highlights any expenses over desired %
 * Pressings Cancel resets expense form data
 
 ## Contributing
